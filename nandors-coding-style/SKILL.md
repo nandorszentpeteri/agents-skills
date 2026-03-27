@@ -2,7 +2,12 @@
 name: nandors-coding-style
 description: >-
   Apply Nandor's functional coding style when writing, reviewing, or refactoring
-  code. Use proactively whenever generating or modifying code.
+  code.
+
+  TRIGGER proactively whenever: writing new code, modifying existing code,
+  reviewing code, refactoring, generating examples, or answering coding
+  questions. This skill should be loaded automatically — do NOT wait for the
+  user to invoke it.
 ---
 
 # Nandor's Coding Style

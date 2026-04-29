@@ -20,6 +20,24 @@ import { formatLeaves } from 'modules/leaves';
 import { AppLeaf } from 'types/common/leaf';
 ```
 
+## Destructured React Imports
+
+Always import React hooks and utilities as named imports. Never access them via `React.` prefix.
+
+```typescript
+// Do
+import { useState, useEffect, useCallback } from 'react';
+
+const [count, setCount] = useState(0);
+useEffect(() => { /* ... */ }, []);
+
+// Don't
+import React from 'react';
+
+const [count, setCount] = React.useState(0);
+React.useEffect(() => { /* ... */ }, []);
+```
+
 ## Named Exports Only
 
 Always use named exports. Avoid default exports — they make refactoring harder, lose the canonical name, and produce inconsistent imports across the codebase.

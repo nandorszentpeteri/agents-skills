@@ -22,7 +22,9 @@ Each tool has a global config location where you can install skills:
 | Claude Code | `~/.claude/` |
 | Codex (OpenAI) | `~/.codex/` |
 | OpenCode | `~/.config/opencode/` |
-| GitHub Copilot | None (project-level only) |
+| GitHub Copilot | `~/.agents/` (reads directly) |
+
+> **Copilot duplicate skills:** Copilot scans `.agents/skills/`, `.claude/skills/`, and `.github/skills/` at project level (plus `~/.agents/skills/`, `~/.claude/skills/`, and `~/.copilot/skills/` at personal level). Since our setup symlinks `.claude/skills/` → `.agents/skills/`, Copilot discovers each skill twice. This appears to be a Copilot bug — the same resolved path should deduplicate. No action needed on your side; the duplicates are cosmetic.
 
 ## Skill Structure
 

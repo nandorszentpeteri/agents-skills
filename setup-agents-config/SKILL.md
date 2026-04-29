@@ -29,9 +29,11 @@ You don't need tool-specific folders like `.github/copilot-instructions.md`, `.c
 |------|-------------------|-----------------|
 | Codex (OpenAI) | `AGENTS.md` + `.agents/` | `~/.codex/` |
 | Cursor | `AGENTS.md` + `.agents/` | `~/.cursor/` |
-| GitHub Copilot | `AGENTS.md` + `.agents/` | None |
+| GitHub Copilot | `AGENTS.md` + `.agents/`, `.claude/`, `.github/` | `~/.agents/`, `~/.claude/`, `~/.copilot/` |
 | OpenCode | `AGENTS.md` + `.agents/` | `~/.config/opencode/` |
 | **Claude Code** | `CLAUDE.md` + `.claude/` | `~/.claude/` |
+
+**Copilot duplicate skills caveat:** Copilot scans `.agents/skills/`, `.claude/skills/`, and `.github/skills/` (project) and `~/.agents/skills/`, `~/.claude/skills/`, `~/.copilot/skills/` (personal). Because our setup symlinks `.claude/skills/` → `.agents/skills/`, Copilot discovers each skill twice. This is a Copilot bug (it should deduplicate by resolved path). The duplicates are cosmetic and don't affect functionality — no action needed.
 
 ## Symlink Strategy
 
@@ -273,7 +275,7 @@ mirror_hub_kind agents
 To add **one** new skill or agent later, link it into the hub first, then re-run step **5** (or run `mirror_hub_kind skills` / `mirror_hub_kind agents` only).
 
 **Key points:**
-- GitHub Copilot is skipped (no global config directory)
+- GitHub Copilot reads directly from `~/.agents/` — no separate global folder needed (it also reads `~/.claude/` and `~/.copilot/`, but `~/.agents/` is sufficient)
 - Claude Code uses `CLAUDE.md` as filename but points to the same `~/.agents/AGENTS.md`
 - **Per-item symlinks at global level** preserve any tool-managed skills in those directories
 - Claude-specific global rules go in `~/.claude/rules/` (not in AGENTS.md)

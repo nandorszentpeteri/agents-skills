@@ -4,7 +4,7 @@ Language-specific conventions that extend the core rules in `SKILL.md`.
 
 ## React Import Order
 
-After 3rd-party imports, order local imports: **context → hooks → rest**.
+After 3rd-party imports, order local imports: **context → hooks → rest**. This **overrides** strict global alphabetical order for the **local** import block only (see core **Import Separation** in `SKILL.md`); the 3rd-party block stays separate, and within each local subgroup use **alphabetical** order.
 
 ```typescript
 import { Box, Typography } from '@mui/material';

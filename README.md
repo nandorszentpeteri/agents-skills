@@ -11,6 +11,7 @@ Skills are markdown-based instruction sets that teach AI coding assistants how t
 | Skill | Description |
 |-------|-------------|
 | [setup-agents-config](setup-agents-config/) | Set up AI agent configuration for multi-tool support |
+| [setup-mcp](setup-mcp/) | Add MCP servers to any AI coding tool — knows the correct path, format, and schema for each harness |
 
 ## Global Config Locations
 
